@@ -2,16 +2,19 @@ package com.precious.journal.model;
 
 import java.util.Date;
 
+@Entity(tableName = "diary")
 public class DiaryEntry {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String title;
     private String description;
-    private Date publishedAt;
+    @ColumnInfo(name = "updated_at")
     private Date upDatedAt;
 
-    public DiaryEntry(String title, String description, Date publishedAt, Date upDatedAt) {
+    @Ignore
+    public DiaryEntry(String title, String description, Date upDatedAt) {
         this.title = title;
         this.description = description;
-        this.publishedAt = publishedAt;
         this.upDatedAt = upDatedAt;
     }
 
@@ -29,14 +32,6 @@ public class DiaryEntry {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getPublishedAt() {
-        return publishedAt;
-    }
-
-    public void setPublishedAt(Date publishedAt) {
-        this.publishedAt = publishedAt;
     }
 
     public Date getUpDatedAt() {

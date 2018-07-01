@@ -23,17 +23,17 @@
         <activity
             android:name=".AddDiaryActivity"
             android:label="@string/add_diary_activity_name"
-            android:theme="@style/AppTheme.Custom"/>
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".RegisterActivity"
             android:label="@string/signup_activity_name"
-            android:theme="@style/AppTheme.Custom"/>
+            android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".LoginActity"
+            android:name=".LoginActivity"
             android:label="@string/signin_activity_name"
-            android:theme="@style/AppTheme.Custom"/>
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
