@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                     // If sign in fails, display a message to the user. If sign in succeeds
                     // the auth state listener will be notified and logic to handle the
                     // signed in user can be handled in the listener.
-                    Toast.makeText(LoginActivity.this, "User Login is" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "User Login is " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
 
                     if(task.isSuccessful()){
@@ -129,12 +129,12 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                     }else if (task.isCanceled()){
                         Log.d(TAG, "Action Cancelled");
-                        Toast.makeText(LoginActivity.this, "Login Cancelled" + task.getException(),
+                        Toast.makeText(LoginActivity.this, "Login Cancelled " + task.getException(),
                                 Toast.LENGTH_SHORT).show();
                         mLogin.setEnabled(true);
                     }else if(!task.isSuccessful()){
                         Log.d(TAG, "Auth Failed");
-                        Toast.makeText(LoginActivity.this, "Authentication failed." + task.getException(),
+                        Toast.makeText(LoginActivity.this, "Authentication failed. " + task.getException(),
                                 Toast.LENGTH_SHORT).show();
                         mLogin.setEnabled(true);
                     }
@@ -164,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //handle Password Reset
-                mFirebaseAuth.sendPasswordResetEmail(resetEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
+/*                mFirebaseAuth.sendPasswordResetEmail(resetEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -172,9 +172,9 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(LoginActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
                         }
-                        dialog.cancel();
+                        dialog.dismiss();
                     }
-                });
+                });*/
             }
         });
 

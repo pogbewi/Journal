@@ -38,8 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/colorPrimary"
-        android:text="@string/add_button"
+        android:background="@color/colorAccent"
+        android:text="Add Diary"
         android:textColor="@android:color/primary_text_dark" />
 
 </LinearLayout>

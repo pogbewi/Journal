@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_register);
         //views
         initViews();
         //Get firebase instance
@@ -130,7 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
                     // If sign up fails, display a message to the user. If sign up succeeds
                     // the auth state listener will be notified and logic to handle the
                     // signed up user can be handled in the listener.
-                    Toast.makeText(RegisterActivity.this, "User registration is" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "User registration is " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
 
                     if(task.isSuccessful()){
@@ -141,12 +141,14 @@ public class RegisterActivity extends AppCompatActivity {
                         setResult(RESULT_OK, null);
                         finish();
                     }else if (task.isCanceled()){
+                        mRegister.setEnabled(true);
                         Log.d(TAG, "Action Cancelled");
-                        Toast.makeText(RegisterActivity.this, "Registration Cancelled" + task.getException(),
+                        Toast.makeText(RegisterActivity.this, "Registration Cancelled " + task.getException(),
                                 Toast.LENGTH_SHORT).show();
                     }else if(!task.isSuccessful()){
+                        mRegister.setEnabled(true);
                         Log.d(TAG, "Auth Failed");
-                        Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
+                        Toast.makeText(RegisterActivity.this, "Authentication failed. " + task.getException(),
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
